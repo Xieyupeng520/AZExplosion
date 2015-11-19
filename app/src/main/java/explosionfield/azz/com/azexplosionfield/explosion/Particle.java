@@ -10,10 +10,17 @@ import java.util.Random;
  */
 public class Particle {
 
+    //原本的值（不可变）
+    float originCX;
+    float originCY;
+    float originRadius;
+
+    //实际的值（可变）
     float cx; //center x of circle
     float cy; //center y of circle
-    int color;
     float radius;
+    int color;
+
 
     static Random random = new Random();
     static final int OFFSET = 20; //偏移量
@@ -27,6 +34,16 @@ public class Particle {
         particle.cx = bound.left + random.nextInt(bound.width());
         particle.cy = bound.top + random.nextInt(bound.height());
 
+        particle.originRadius = particle.radius;
+        particle.originCX = particle.cx;
+        particle.originCY = particle.cy;
         return particle;
+    }
+
+    public void advance(float factor) {
+        cx = originCX + factor;
+        cy = originCY + factor;
+
+        radius = radius * (1 + factor);
     }
 }

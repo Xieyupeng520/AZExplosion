@@ -50,6 +50,10 @@ public class ExplosionField extends View{
         Rect rect = new Rect(view.getLeft(),view.getTop(),view.getRight(),view.getBottom());
         ExplosionAnimator animator = new ExplosionAnimator(view, createBitmapFromView(view), rect);
         explosionAnimators.add(animator);
+
+        animator.setFloatValues(0.0f,1.0f);
+        animator.setDuration(1500);
+        animator.start();
     }
 
     private Bitmap createBitmapFromView(View view) {
