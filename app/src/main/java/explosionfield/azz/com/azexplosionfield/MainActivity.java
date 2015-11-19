@@ -1,9 +1,15 @@
 package explosionfield.azz.com.azexplosionfield;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import explosionfield.azz.com.azexplosionfield.explosion.ExplosionField;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,6 +17,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ViewGroup rootView = (ViewGroup) findViewById(R.id.root);
+        final TextView view = (TextView) findViewById(R.id.hello);
+        final ExplosionField explosionField = (ExplosionField) findViewById(R.id.explosion);
+        ImageView imageView = (ImageView) findViewById(R.id.image);
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                explosionField.explode(v);
+                explosionField.postInvalidate();
+                v.setAlpha(0.1f);
+
+//                view.setOnClickListener(null); // 用过一次就不需要了
+            }
+        };
+
+        view.setOnClickListener(onClickListener);
+        imageView.setOnClickListener(onClickListener);
+
     }
 
     @Override
