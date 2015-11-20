@@ -1,6 +1,6 @@
 package explosionfield.azz.com.azexplosionfield.explosion;
 
-import android.animation.ValueAnimator;
+import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -37,7 +37,6 @@ public class ExplosionField extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.d("azzz", "onDraw");
         for (ExplosionAnimator animator : explosionAnimators) {
             animator.draw(canvas);
         }
@@ -47,18 +46,33 @@ public class ExplosionField extends View{
      * 爆破
      * @param view 使得该view爆破
      */
-    public void explode(View view) {
+    public void explode(final View view) {
         Rect rect = new Rect(view.getLeft(),view.getTop(),view.getRight(),view.getBottom());
-        final ExplosionAnimator animator = new ExplosionAnimator(view, createBitmapFromView(view), rect);
+        final ExplosionAnimator animator = new ExplosionAnimator(this, createBitmapFromView(view), rect);
         explosionAnimators.add(animator);
 
         animator.setFloatValues(0.0f, 1.0f);
         animator.setDuration(1500);
         animator.start();
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+        animator.addListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Log.d("azzz", "update");
+            public void onAnimationStart(Animator animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setAlpha(1f);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
             }
         });
     }
@@ -66,15 +80,18 @@ public class ExplosionField extends View{
     private Bitmap createBitmapFromView(View view) {
         if (view instanceof ImageView) {
             Drawable drawable = ((ImageView)view).getDrawable();
-            Log.d(TAG, "view is imageview , drawable is " + drawable);
             if (drawable != null && drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
+                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+                bitmap = Bitmap.createScaledBitmap(bitmap, view.getWidth(), view.getHeight(), false);
+                return bitmap;
             }
         }
         //view.clearFocus(); //不同焦点状态显示的可能不同
 
         Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
 
+        Log.e("azzz", "图像宽 = " + bitmap.getWidth() + " 图像 高= " + bitmap.getHeight());
+        Log.e("azzz", "view宽 = " + view.getHeight() + " view 高= " + view.getHeight());
         if (bitmap != null) {
             synchronized (mCanvas) {
                 mCanvas.setBitmap(bitmap);

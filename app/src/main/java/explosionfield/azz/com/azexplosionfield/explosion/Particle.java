@@ -1,5 +1,6 @@
 package explosionfield.azz.com.azexplosionfield.explosion;
 
+import android.graphics.Point;
 import android.graphics.Rect;
 
 import java.util.Random;
@@ -19,8 +20,9 @@ public class Particle {
     float cx; //center x of circle
     float cy; //center y of circle
     float radius;
-    int color;
 
+    int color;
+    float alpha;
 
     static Random random = new Random();
     static final int OFFSET = 20; //偏移量
@@ -28,6 +30,8 @@ public class Particle {
     public static Particle generateParticle(int color, Rect bound) {
         Particle particle = new Particle();
         particle.color = color;
+        particle.alpha = 1f;
+
         particle.radius = random.nextFloat() * ExplosionAnimator.PART_WH;
 //        particle.cx = bound.centerX() + (random.nextFloat() - 0.5f) * OFFSET;
 //        particle.cy = bound.centerY() + (random.nextFloat() - 0.5f) * OFFSET;
@@ -40,10 +44,29 @@ public class Particle {
         return particle;
     }
 
-    public void advance(float factor) {
-        cx = originCX + factor;
-        cy = originCY + factor;
+    public static Particle generateParticle(int color, Rect bound, Point point) {
+        int row = point.y; //行是高
+        int column = point.x; //列是宽
 
-        radius = radius * (1 + factor);
+        Particle particle = new Particle();
+        particle.color = color;
+        particle.alpha = 1f;
+
+        particle.radius = ExplosionAnimator.PART_WH;
+        particle.cx = bound.left + ExplosionAnimator.PART_WH * (column - 1);
+        particle.cy = bound.top + ExplosionAnimator.PART_WH * (row - 1);
+
+        particle.originRadius = particle.radius;
+        particle.originCX = particle.cx;
+        particle.originCY = particle.cy;
+        return particle;
+    }
+    public void advance(float factor) {
+        cx = originCX + factor * random.nextInt(20) * (random.nextFloat() - 0.5f);
+        cy = cy + factor * random.nextInt(100);
+
+        radius = radius - factor * random.nextInt(2);
+
+        alpha = 1f - factor;
     }
 }
