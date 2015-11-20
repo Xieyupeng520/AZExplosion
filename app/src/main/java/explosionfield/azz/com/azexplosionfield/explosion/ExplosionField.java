@@ -1,5 +1,6 @@
 package explosionfield.azz.com.azexplosionfield.explosion;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -48,12 +49,18 @@ public class ExplosionField extends View{
      */
     public void explode(View view) {
         Rect rect = new Rect(view.getLeft(),view.getTop(),view.getRight(),view.getBottom());
-        ExplosionAnimator animator = new ExplosionAnimator(view, createBitmapFromView(view), rect);
+        final ExplosionAnimator animator = new ExplosionAnimator(view, createBitmapFromView(view), rect);
         explosionAnimators.add(animator);
 
-        animator.setFloatValues(0.0f,1.0f);
+        animator.setFloatValues(0.0f, 1.0f);
         animator.setDuration(1500);
         animator.start();
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Log.d("azzz", "update");
+            }
+        });
     }
 
     private Bitmap createBitmapFromView(View view) {
