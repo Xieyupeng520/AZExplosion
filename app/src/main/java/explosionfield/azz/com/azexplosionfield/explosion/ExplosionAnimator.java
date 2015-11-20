@@ -15,9 +15,13 @@ public class ExplosionAnimator extends ValueAnimator{
     public static final int PART_WH = 10; //宽高
     private Particle[][] particles;
     private Paint mPaint;
+    private View mContainer;
 
+    private Rect mBound;
     public ExplosionAnimator(View view, Bitmap bitmap, Rect bound) {
         mPaint = new Paint();
+        mContainer = view;
+        mBound = bound;
 
         int w = bitmap.getWidth();
         int h = bitmap.getHeight();
@@ -39,9 +43,19 @@ public class ExplosionAnimator extends ValueAnimator{
         Log.d("azzz", "draw : particles " + particles.length);
         for (Particle[] particle : particles) {
             for (Particle p : particle) {
+                p.advance(0.1f);
                 mPaint.setColor(p.color);
                 canvas.drawCircle(p.cx, p.cy, p.radius, mPaint);
             }
         }
+
+        mContainer.postInvalidate();
+    }
+
+    @Override
+    public void start() {
+        super.start();
+//        mContainer.postInvalidate();
+        mContainer.invalidate(mBound);
     }
 }
