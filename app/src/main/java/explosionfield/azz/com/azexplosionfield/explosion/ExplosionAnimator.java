@@ -14,13 +14,18 @@ import android.view.View;
  */
 public class ExplosionAnimator extends ValueAnimator{
     public static final int PART_WH = 8; //默认小球宽高
+    public static final int DEFAULT_DURATION = 1500;
     private Particle[][] particles;
     private Paint mPaint;
     private View mContainer;
 
     public ExplosionAnimator(View view, Bitmap bitmap, Rect bound) {
+
         mPaint = new Paint();
         mContainer = view;
+
+        setFloatValues(0.0f, 1.0f);
+        setDuration(DEFAULT_DURATION);
 
         int w = bound.width();
         int h = bound.height();

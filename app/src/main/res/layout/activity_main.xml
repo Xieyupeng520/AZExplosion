@@ -12,12 +12,6 @@
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <explosionfield.azz.com.azexplosionfield.explosion.ExplosionField
-        android:id="@+id/explosion"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#000000"
-        />
     <TextView android:id="@+id/hello"
         android:text="@string/hello_world"
         android:layout_width="wrap_content"

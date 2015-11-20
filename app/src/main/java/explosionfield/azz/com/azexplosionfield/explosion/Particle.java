@@ -53,8 +53,8 @@ public class Particle {
         particle.alpha = 1f;
 
         particle.radius = ExplosionAnimator.PART_WH;
-        particle.cx = bound.left + ExplosionAnimator.PART_WH * (column - 1);
-        particle.cy = bound.top + ExplosionAnimator.PART_WH * (row - 1);
+        particle.cx = bound.left + ExplosionAnimator.PART_WH * column;
+        particle.cy = bound.top + ExplosionAnimator.PART_WH * row;
 
         particle.originRadius = particle.radius;
         particle.originCX = particle.cx;
