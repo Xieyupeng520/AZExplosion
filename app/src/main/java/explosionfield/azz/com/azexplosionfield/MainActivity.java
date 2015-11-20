@@ -14,26 +14,21 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_1);
+        setContentView(R.layout.activity_main);
 
         final ViewGroup rootView = (ViewGroup) findViewById(R.id.root);
-//        final TextView view = (TextView) findViewById(R.id.hello);
         final ExplosionField explosionField = (ExplosionField) findViewById(R.id.explosion);
-//        ImageView imageView = (ImageView) findViewById(R.id.image);
 
 
         onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 explosionField.explode(v);
-                v.setAlpha(0.1f);
+                v.setAlpha(0f);
 
 //                view.setOnClickListener(null); // 用过一次就不需要了
             }
         };
-
-//        view.setOnClickListener(onClickListener);
-//        imageView.setOnClickListener(onClickListener);
 
         addListener(rootView);
     }

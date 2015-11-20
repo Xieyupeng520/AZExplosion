@@ -52,26 +52,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
-            android:src="@drawable/p4" />
+            android:src="@drawable/p4"
+            android:background="#afaa0a"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/p5" />
+            android:src="@drawable/p5"
+            android:background="#0bb000"/>
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/p3" />
+            android:src="@drawable/p3"
+            android:background="#0000aa"/>
 
     </LinearLayout>
 

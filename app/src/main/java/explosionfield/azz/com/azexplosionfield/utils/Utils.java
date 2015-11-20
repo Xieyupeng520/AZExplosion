@@ -3,7 +3,7 @@ package explosionfield.azz.com.azexplosionfield.utils;
 import android.content.res.Resources;
 
 /**
- * Created by jiuzhoudianqi on 15/11/19.
+ * Created by azz on 15/11/19.
  */
 public class Utils {
     /**

@@ -5,12 +5,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -47,7 +44,13 @@ public class ExplosionField extends View{
      * @param view 使得该view爆破
      */
     public void explode(final View view) {
-        Rect rect = new Rect(view.getLeft(),view.getTop(),view.getRight(),view.getBottom());
+//        Rect rect = new Rect(view.getLeft(),view.getTop(),view.getRight(),view.getBottom());
+        Rect rect = new Rect();
+        view.getGlobalVisibleRect(rect); //得到view相对于整个屏幕的坐标
+        Log.d("pos", "(" + rect.left + "," + rect.top + "," + rect.right + "," + rect.bottom + ")");
+
+        rect.offset(0, -25);
+
         final ExplosionAnimator animator = new ExplosionAnimator(this, createBitmapFromView(view), rect);
         explosionAnimators.add(animator);
 
@@ -78,20 +81,21 @@ public class ExplosionField extends View{
     }
 
     private Bitmap createBitmapFromView(View view) {
-        if (view instanceof ImageView) {
-            Drawable drawable = ((ImageView)view).getDrawable();
-            if (drawable != null && drawable instanceof BitmapDrawable) {
-                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-                bitmap = Bitmap.createScaledBitmap(bitmap, view.getWidth(), view.getHeight(), false);
-                return bitmap;
-            }
-        }
+        /*
+         * 为什么屏蔽以下代码段？
+         * 如果ImageView直接得到位图，那么当它设置背景（backgroud)时，不会读取到背景颜色
+         */
+//        if (view instanceof ImageView) {
+//            Drawable drawable = ((ImageView)view).getDrawable();
+//            if (drawable != null && drawable instanceof BitmapDrawable) {
+//                return ((BitmapDrawable) drawable).getBitmap();
+//            }
+//        }
+
         //view.clearFocus(); //不同焦点状态显示的可能不同
 
         Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
 
-        Log.e("azzz", "图像宽 = " + bitmap.getWidth() + " 图像 高= " + bitmap.getHeight());
-        Log.e("azzz", "view宽 = " + view.getHeight() + " view 高= " + view.getHeight());
         if (bitmap != null) {
             synchronized (mCanvas) {
                 mCanvas.setBitmap(bitmap);

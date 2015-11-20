@@ -62,11 +62,11 @@ public class Particle {
         return particle;
     }
     public void advance(float factor) {
-        cx = originCX + factor * random.nextInt(20) * (random.nextFloat() - 0.5f);
-        cy = cy + factor * random.nextInt(100);
+        cx = cx + factor * random.nextInt(200) * (random.nextFloat() - 0.5f);
+        cy = cy + factor * random.nextInt(80);
 
         radius = radius - factor * random.nextInt(2);
 
-        alpha = 1f - factor;
+        alpha = 1f - factor + random.nextFloat();
     }
 }
