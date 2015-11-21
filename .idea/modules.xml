@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AZExplosionField.iml" filepath="$PROJECT_DIR$/AZExplosionField.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AZExplosion.iml" filepath="$PROJECT_DIR$/AZExplosion.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

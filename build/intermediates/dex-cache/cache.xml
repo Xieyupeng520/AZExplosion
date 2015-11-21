@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/jiuzhoudianqi/Development/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jar="/Users/AZZ/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1-9ec44b7310aa37503f7833256ba6ec55b399ea73.jar" />
+        revision="19.1.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-84c6e6457f6e227c0fb8e19c6351381d1563e43a.jar" />
     </item>
     <item
-        jar="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1-770e504eee3feb890e63a0e97b30137c3f834b2e.jar" />
+        revision="19.1.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-3dbfcea8d5f15eac770add22b3a41bc0ebf49069.jar" />
     </item>
     <item
-        jar="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/pre-dexed/debug/classes-7c2c6fc9fd8fc14a85d01bae4c63980dce64f83a.jar" />
+        revision="19.1.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/classes-62252d78c524a25cd4aa575376c1749e9a5ddb44.jar" />
     </item>
     <item
-        jar="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="/Users/jiuzhoudianqi/Documents/android/zz/AZExplosionField/app/build/intermediates/pre-dexed/debug/classes-9445fe82ebd3d8b20710d7875d0a39cf92c65013.jar" />
+        revision="19.1.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/classes-17f053a0e1e1aa0f520760350e13bdea4a57e167.jar" />
     </item>
 
 </items>
