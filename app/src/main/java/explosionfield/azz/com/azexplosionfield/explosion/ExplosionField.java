@@ -1,6 +1,7 @@
 package explosionfield.azz.com.azexplosionfield.explosion;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import java.util.ArrayList;
+
+import explosionfield.azz.com.azexplosionfield.utils.Utils;
 
 /**
  * Created by azz on 15/11/19.
@@ -51,29 +54,24 @@ public class ExplosionField extends View{
     public void explode(final View view) {
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect); //得到view相对于整个屏幕的坐标
-        rect.offset(0, -25); //去掉状态栏高度
+        rect.offset(0, -Utils.dp2px(25)); //去掉状态栏高度
 
         final ExplosionAnimator animator = new ExplosionAnimator(this, createBitmapFromView(view), rect);
         explosionAnimators.add(animator);
 
-
-        animator.addListener(new Animator.AnimatorListener() {
+        animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                view.setAlpha(0f);
+                view.animate().alpha(0f).setDuration(150).start();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                view.setAlpha(1f);
-            }
+                view.animate().alpha(1f).setDuration(150).start();
 
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
+                //动画结束时从动画集中移除
+                explosionAnimators.remove(animation);
+                animation = null;
             }
         });
         animator.start();

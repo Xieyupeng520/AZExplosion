@@ -13,9 +13,8 @@ import android.view.View;
  * Created by azz on 15/11/19.
  */
 public class ExplosionAnimator extends ValueAnimator{
-    public static final int PART_WH = 8; //默认小球宽高
     public static final int DEFAULT_DURATION = 1500;
-    private Particle[][] particles;
+    private Particle[][] mParticles;
     private Paint mPaint;
     private View mContainer;
 
@@ -27,16 +26,20 @@ public class ExplosionAnimator extends ValueAnimator{
         setFloatValues(0.0f, 1.0f);
         setDuration(DEFAULT_DURATION);
 
+        mParticles = generateParticles(bitmap, bound);
+    }
+
+    private Particle[][] generateParticles(Bitmap bitmap, Rect bound) {
         int w = bound.width();
         int h = bound.height();
 
-        int partW_Count = w / PART_WH; //横向个数
-        int partH_Count = h / PART_WH; //竖向个数
+        int partW_Count = w / Particle.PART_WH; //横向个数
+        int partH_Count = h / Particle.PART_WH; //竖向个数
 
         int bitmap_part_w = bitmap.getWidth() / partW_Count;
         int bitmap_part_h = bitmap.getHeight() / partH_Count;
 
-        particles = new Particle[partH_Count][partW_Count];
+        Particle[][] particles = new Particle[partH_Count][partW_Count];
         Point point = null;
         for (int row = 0; row < partH_Count; row ++) { //行
             for (int column = 0; column < partW_Count; column ++) { //列
@@ -48,13 +51,15 @@ public class ExplosionAnimator extends ValueAnimator{
                 particles[row][column] = Particle.generateParticle(color, bound, point);
             }
         }
+
+        return particles;
     }
 
     public void draw(Canvas canvas) {
         if(!isStarted()) { //动画结束时停止
             return;
         }
-        for (Particle[] particle : particles) {
+        for (Particle[] particle : mParticles) {
             for (Particle p : particle) {
                 p.advance((Float) getAnimatedValue());
                 mPaint.setColor(p.color);
@@ -64,12 +69,12 @@ public class ExplosionAnimator extends ValueAnimator{
             }
         }
 
-        mContainer.postInvalidate();
+        mContainer.invalidate();
     }
 
     @Override
     public void start() {
         super.start();
-        mContainer.postInvalidate();
+        mContainer.invalidate();
     }
 }

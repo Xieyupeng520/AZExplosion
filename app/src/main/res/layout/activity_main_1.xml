@@ -80,7 +80,7 @@
             android:gravity="center"
             android:layout_marginTop="48dp"
             android:text="click to destroy"
-            android:textSize="100sp"
+            android:textSize="40sp"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
