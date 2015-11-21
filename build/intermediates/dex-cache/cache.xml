@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/AZZ/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-84c6e6457f6e227c0fb8e19c6351381d1563e43a.jar" />
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/classes-62252d78c524a25cd4aa575376c1749e9a5ddb44.jar" />
     </item>
     <item
         jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
@@ -16,11 +16,11 @@
         <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-3dbfcea8d5f15eac770add22b3a41bc0ebf49069.jar" />
     </item>
     <item
-        jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar"
+        jar="/Users/AZZ/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
-        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/classes-62252d78c524a25cd4aa575376c1749e9a5ddb44.jar" />
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-84c6e6457f6e227c0fb8e19c6351381d1563e43a.jar" />
     </item>
     <item
         jar="/Users/AZZ/Documents/Development/Android/2015AndroidStudio/AZExplosion/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
